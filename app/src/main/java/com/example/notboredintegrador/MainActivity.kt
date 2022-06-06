@@ -2,8 +2,9 @@ package com.example.notboredintegrador
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.text.isDigitsOnly
 import com.example.notboredintegrador.databinding.ActivityMainBinding
 
 
@@ -18,6 +19,14 @@ class MainActivity : AppCompatActivity() {
 
         binding.tvTermsAndCond.setOnClickListener {
             navigate(TermsAndConditions())
+        }
+
+        binding.btnStart.setOnClickListener {
+            if (binding.edtNumberParticipants.text.isDigitsOnly()) {
+                navigate(Activities())
+            }else {
+                binding.edtNumberParticipants.error = "Only digits allowed"
+            }
         }
     }
 
