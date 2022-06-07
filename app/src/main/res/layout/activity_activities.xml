@@ -6,4 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".Activities">
 
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/rvTypeList"
+        app:layout_constraintEnd_toStartOf="@+id/ivShuffleButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.537" />
+
+    <ImageView
+        android:id="@+id/ivShuffleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/rvTypeList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.489"
+        app:srcCompat="@drawable/ic_shuffle" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTypeList"
+        android:layout_width="409dp"
+        android:layout_height="657dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/item_type" />
 </androidx.constraintlayout.widget.ConstraintLayout>
