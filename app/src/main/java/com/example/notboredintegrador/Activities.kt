@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notboredintegrador.databinding.ActivityActivitiesBinding
-import com.example.notboredintegrador.databinding.ActivityMainBinding
+import com.example.notboredintegrador.recycler.ActivitiesAdapter
 
 class Activities : AppCompatActivity() {
     val activityType = listOf<String>(
@@ -19,8 +19,11 @@ class Activities : AppCompatActivity() {
         binding = ActivityActivitiesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val participants = intent?.getStringExtra("Participants").toString()
 
-        activitiesAdapter = ActivitiesAdapter(activityType)
+        println("Mensaje --> Participants ${participants}")
+
+        activitiesAdapter = ActivitiesAdapter(activityType, participants)
         binding.rvTypeList.addItemDecoration(DividerItemDecoration(this, HORIZONTAL))
         binding.rvTypeList.layoutManager = LinearLayoutManager(this)
         binding.rvTypeList.adapter = activitiesAdapter

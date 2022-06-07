@@ -1,10 +1,11 @@
-package com.example.notboredintegrador
+package com.example.notboredintegrador.recycler
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.notboredintegrador.R
 
-class ActivitiesAdapter(var activityType: List<String>): RecyclerView.Adapter<ActivitiesViewHolder>() {
+class ActivitiesAdapter(val activityType: List<String>, val participants : String ): RecyclerView.Adapter<ActivitiesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActivitiesViewHolder {
         val view =
             LayoutInflater.from(parent.context)
@@ -13,7 +14,7 @@ class ActivitiesAdapter(var activityType: List<String>): RecyclerView.Adapter<Ac
 
     override fun onBindViewHolder(holder: ActivitiesViewHolder, position: Int) {
         val typePosition = activityType[position]
-        holder.bind(typePosition)
+        holder.bind(typePosition, participants)
     }
 
     override fun getItemCount(): Int = activityType.size
