@@ -1,5 +1,6 @@
 package com.example.notboredintegrador
 
+import android.content.Intent
 import android.graphics.drawable.ClipDrawable.HORIZONTAL
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -33,6 +34,12 @@ class Activities : AppCompatActivity() {
         binding.rvTypeList.addItemDecoration(DividerItemDecoration(this, HORIZONTAL))
         binding.rvTypeList.layoutManager = LinearLayoutManager(this)
         binding.rvTypeList.adapter = activitiesAdapter
+
+        binding.ivShuffleButton.setOnClickListener {
+            val intent = Intent(it.context,DetailsActivity::class.java)
+            intent.putExtra("Participants", participants)
+            it.context.startActivity(intent)
+        }
     }
 
 }
