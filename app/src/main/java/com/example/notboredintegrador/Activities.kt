@@ -2,9 +2,8 @@ package com.example.notboredintegrador
 
 import android.content.Intent
 import android.graphics.drawable.ClipDrawable.HORIZONTAL
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notboredintegrador.databinding.ActivityActivitiesBinding
@@ -18,11 +17,7 @@ class Activities : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        @Suppress("DEPRECATION")
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
+
         binding = ActivityActivitiesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
