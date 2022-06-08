@@ -3,6 +3,8 @@ package com.example.notboredintegrador
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.isDigitsOnly
@@ -21,6 +23,31 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         participants = binding.EditTextParticipants
+
+        participants.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+                if (participants.text.isNotEmpty()){
+                    binding.btnStart.isEnabled = true
+                }else{
+                    binding.btnStart.isEnabled = false
+                    participants.error = "Enter a number of participants"
+                }
+
+                    //binding.btnStart.isEnabled = participants.text.length>0
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (participants.text.isNotEmpty()){
+                    binding.btnStart.isEnabled = true
+                }else{
+                    binding.btnStart.isEnabled = false
+                    participants.error = "Enter a number of participants"
+                }
+            }
+        })
         binding.tvTermsAndCond.setOnClickListener {
             navigate(TermsAndConditions())
         }
