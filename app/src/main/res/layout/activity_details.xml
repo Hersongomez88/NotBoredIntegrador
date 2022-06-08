@@ -7,77 +7,216 @@
     tools:context=".DetailsActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/containerDetails"
+        android:id="@+id/containerTitle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_height="80dp"
+        android:background="@color/purple"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/TvActicityType"
+            app:layout_constraintHorizontal_bias="0.243"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/TvActicityType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            tools:text="Activity"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.129"
-            tools:text="Informacion" />
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- <androidx.constraintlayout.widget.ConstraintLayout
+         android:id="@+id/containerDetails"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         app:layout_constraintBottom_toBottomOf="parent">
+
+         <TextView
+             android:id="@+id/TvActicityType"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="20dp"
+             android:layout_marginEnd="20dp"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:layout_constraintVertical_bias="0.129"
+             tools:text="Informacion" />
+
+         <TextView
+             android:id="@+id/TvActicity"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="20dp"
+             android:layout_marginEnd="20dp"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/TvActicityType"
+             app:layout_constraintVertical_bias="0.101"
+             tools:text="Informacion" />
+
+         <TextView
+             android:id="@+id/TvParticipants"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="20dp"
+             android:layout_marginEnd="20dp"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/TvActicity"
+             app:layout_constraintVertical_bias="0.084"
+             tools:text="Informacion" />
+
+         <TextView
+             android:id="@+id/TvPrice"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="20dp"
+             android:layout_marginEnd="20dp"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/TvParticipants"
+             app:layout_constraintVertical_bias="0.139"
+             tools:text="Informacion" />
+
+     </androidx.constraintlayout.widget.ConstraintLayout>
+
+     <TextView
+         android:id="@+id/tvErrorMessage"
+         android:visibility="gone"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Error fetching the activity, please try again"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent">
+
+     </TextView>-->
+
+    <TextView
+        android:id="@+id/TvActicity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/containerTitle"
+        tools:text="Informacion" />
+
+    <LinearLayout
+        android:id="@+id/containerParticipants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TvActicity">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_person" />
 
         <TextView
-            android:id="@+id/TvActicity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TvActicityType"
-            app:layout_constraintVertical_bias="0.101"
-            tools:text="Informacion" />
+            android:textColor="@color/black"
+            android:text="@string/participants" />
 
         <TextView
             android:id="@+id/TvParticipants"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginStart="30dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/containerPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/containerParticipants">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_money" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TvActicity"
-            app:layout_constraintVertical_bias="0.084"
-            tools:text="Informacion" />
+            android:textColor="@color/black"
+            android:text="@string/price" />
 
         <TextView
             android:id="@+id/TvPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TvParticipants"
-            app:layout_constraintVertical_bias="0.139"
-            tools:text="Informacion" />
+            android:textColor="@color/black"
+            android:layout_marginStart="30dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvErrorMessage"
-        android:visibility="gone"
+    <LinearLayout
+        android:id="@+id/containerActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Error fetching the activity, please try again"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="80dp"
+        android:orientation="horizontal"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/containerPrice">
 
-    </TextView>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_format_list" />
+
+        <TextView
+            android:id="@+id/TvActicity2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/black"
+            android:text="@string/participants" />
+
+    </LinearLayout>
+
+
 
     <Button
         android:id="@+id/btnTryAnother"

@@ -12,7 +12,7 @@ import com.example.notboredintegrador.recycler.ActivitiesAdapter
 
 class Activities : AppCompatActivity() {
     val activityType = listOf<String>(
-        "education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork")
+        "Education", "Recreational", "Social", "Diy", "Charity", "Cooking", "Relaxation", "Music", "Busywork")
     private lateinit var binding: ActivityActivitiesBinding
     private lateinit var activitiesAdapter: ActivitiesAdapter
 
@@ -28,10 +28,8 @@ class Activities : AppCompatActivity() {
 
         val participants = intent?.getStringExtra("Participants").toString()
 
-        println("Mensaje --> Participants ${participants}")
 
         activitiesAdapter = ActivitiesAdapter(activityType, participants)
-        //binding.rvTypeList.addItemDecoration(DividerItemDecoration(this, HORIZONTAL))
         binding.rvTypeList.layoutManager = LinearLayoutManager(this)
         binding.rvTypeList.adapter = activitiesAdapter
 

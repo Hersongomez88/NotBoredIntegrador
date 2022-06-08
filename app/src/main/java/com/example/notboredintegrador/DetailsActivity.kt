@@ -18,17 +18,17 @@ class DetailsActivity : AppCompatActivity() {
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val activityType = intent.getStringExtra("ActivityType")
+        val activityType = intent.getStringExtra("ActivityType")?.lowercase()
         val participants = intent.getStringExtra("Participants")?.toInt()
-
-        println("Mensaje --> $activityType recibido y el numero de participantes es: $participants")
-        val texto = binding.TvActicityType
-        texto.setText("La actividad elegida es: ${activityType} \ny el numero de participantes para esta actividad es: $participants")
 
         loadActivity(activityType, participants)
 
         binding.btnTryAnother.setOnClickListener {
             loadActivity(activityType, participants)
+        }
+
+        binding.ivBack.setOnClickListener {
+            onBackPressed()
         }
 
     }
@@ -47,23 +47,30 @@ class DetailsActivity : AppCompatActivity() {
 
                 runOnUiThread {
                     with(binding) {
-                        TvActicity.text = activityInfo?.description ?: ""
-                        TvActicityType.text = activityInfo?.category ?: ""
+                        activityType?.let {
+                            TvActicityType.text = activityInfo?.category ?: ""
+                            binding.containerActivity.visibility = View.GONE
+                        }?: run {
+                            TvActicityType.text = "Random"
+                            binding.containerActivity.visibility = View.VISIBLE
+                            binding.TvActicity2.text= activityInfo?.category?:""
+                        }
+                        TvActicity.text = activityInfo?.description?: ""
                         TvParticipants.text = activityInfo?.participants.toString()
                         TvPrice.text = getPrice(activityInfo?.price)
 
                         binding.btnTryAnother.text = "Try another"
 
-                        containerDetails.visibility = View.VISIBLE
-                        tvErrorMessage.visibility = View.GONE
+                        //containerDetails.visibility = View.VISIBLE
+                        //tvErrorMessage.visibility = View.GONE
                     }
                 }
 
             } else {
                 runOnUiThread {
-                    binding.containerDetails.visibility = View.GONE
+                    //binding.containerDetails.visibility = View.GONE
 
-                    binding.tvErrorMessage.visibility = View.VISIBLE
+                    //binding.tvErrorMessage.visibility = View.VISIBLE
 
                     binding.btnTryAnother.text = "Try again"
                 }
