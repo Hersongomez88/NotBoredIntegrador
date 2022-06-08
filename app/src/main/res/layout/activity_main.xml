@@ -15,7 +15,7 @@
         android:layout_marginTop="84dp"
         android:text="@string/title_app"
         android:textColor="@color/titleColor"
-        android:textSize="36dp"
+        android:textSize="36sp"
         android:textStyle="bold"
         android:fontFamily="monospace"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,6 +42,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="16dp"
+        android:hint="@string/edtNumberParticipantsHint"
         android:ems="10"
         android:inputType="number"
         android:minHeight="48dp"
@@ -49,7 +50,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvParticipants" />
+        app:layout_constraintTop_toBottomOf="@+id/tvParticipants"
+        android:autofillHints="true" />
 
     <Button
         android:id="@+id/btnStart"
