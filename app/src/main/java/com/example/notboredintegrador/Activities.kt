@@ -26,7 +26,7 @@ class Activities : AppCompatActivity() {
         println("Mensaje --> Participants ${participants}")
 
         activitiesAdapter = ActivitiesAdapter(activityType, participants)
-        binding.rvTypeList.addItemDecoration(DividerItemDecoration(this, HORIZONTAL))
+        //binding.rvTypeList.addItemDecoration(DividerItemDecoration(this, HORIZONTAL))
         binding.rvTypeList.layoutManager = LinearLayoutManager(this)
         binding.rvTypeList.adapter = activitiesAdapter
 
