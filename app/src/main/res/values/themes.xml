@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.NotBoredIntegrador" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">#732baf</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -18,5 +18,11 @@
         <item name="colorControlNormal">#000000</item>
         <item name="colorControlActivated">#000000</item>
         <item name="android:textColorHighlight">#000000</item>
+    </style>
+
+    <style name="outlinedTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">#000000</item>
+        <item name="hintTextColor">#000000</item>
+        <item name="android:textColorHint">#000000</item>
     </style>
 </resources>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".TermsAndConditions">
 
 
@@ -13,6 +14,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/terms_and_conditions"
+        android:textStyle="bold"
+        android:textSize="26sp"
+        android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,8 +25,11 @@
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="@string/title_app"
+        android:textSize="75sp"
+        android:textStyle="italic"
+        android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activityName" />
@@ -44,6 +51,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="16dp"
+                android:lineSpacingExtra="12dp"
                 android:text="@string/termsAndConditionsText" />
         </LinearLayout>
     </ScrollView>
