@@ -48,30 +48,23 @@ class DetailsActivity : AppCompatActivity() {
                 runOnUiThread {
                     with(binding) {
                         activityType?.let {
-                            TvActicityType.text = activityInfo?.category ?: ""
-                            binding.containerActivity.visibility = View.GONE
-                        }?: run {
-                            TvActicityType.text = "Random"
-                            binding.containerActivity.visibility = View.VISIBLE
-                            binding.TvActicity2.text= activityInfo?.category?:""
+                            TvActivityType.text = activityInfo?.category
+                            containerActivity.visibility = View.GONE
+                        } ?: run {
+                            TvActivityType.text = "Random"
+                            containerActivity.visibility = View.VISIBLE
+                            TvActicity2.text = activityInfo?.category
                         }
-                        TvActicity.text = activityInfo?.description?: ""
+                        TvActicity.text = activityInfo?.description
                         TvParticipants.text = activityInfo?.participants.toString()
                         TvPrice.text = getPrice(activityInfo?.price)
 
-                        binding.btnTryAnother.text = "Try another"
-
-                        //containerDetails.visibility = View.VISIBLE
-                        //tvErrorMessage.visibility = View.GONE
+                        btnTryAnother.text = "Try another"
                     }
                 }
 
             } else {
                 runOnUiThread {
-                    //binding.containerDetails.visibility = View.GONE
-
-                    //binding.tvErrorMessage.visibility = View.VISIBLE
-
                     binding.btnTryAnother.text = "Try again"
                 }
             }

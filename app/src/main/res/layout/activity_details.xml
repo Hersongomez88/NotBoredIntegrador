@@ -21,23 +21,23 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_back"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/TvActicityType"
+            app:layout_constraintEnd_toStartOf="@+id/TvActivityType"
             app:layout_constraintHorizontal_bias="0.243"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/TvActicityType"
+            android:id="@+id/TvActivityType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textSize="32sp"
             android:textStyle="bold"
-            tools:text="Activity"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Activity" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -119,11 +119,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:textSize="30sp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
         android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/containerTitle"
         tools:text="Informacion" />
@@ -147,15 +147,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:textColor="@color/black"
-            android:text="@string/participants" />
+            android:text="@string/participants"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/TvParticipants"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:layout_marginStart="30dp" />
+            android:layout_marginStart="30dp"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
@@ -178,15 +178,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:textColor="@color/black"
-            android:text="@string/price" />
+            android:text="@string/price"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/TvPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:layout_marginStart="30dp" />
+            android:layout_marginStart="30dp"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
@@ -211,11 +211,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:textColor="@color/black"
-            android:text="@string/participants" />
+            android:text="@string/participants"
+            android:textColor="@color/black" />
 
     </LinearLayout>
-
 
 
     <Button
