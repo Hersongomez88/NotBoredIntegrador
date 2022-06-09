@@ -8,14 +8,14 @@ import com.example.notboredintegrador.DetailsActivity
 import com.example.notboredintegrador.MainActivity
 import com.example.notboredintegrador.databinding.ItemTypeBinding
 
-class ActivitiesViewHolder(view: View):RecyclerView.ViewHolder(view) {
-    val binding = ItemTypeBinding.bind(view)
+class ActivitiesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    private val binding = ItemTypeBinding.bind(view)
 
-    fun bind(type:String, participants: String){
+    fun bind(type: String, participants: String) {
         binding.tvType.text = type
         binding.itemTypeContainer.setOnClickListener {
-            val intent = Intent(it.context,DetailsActivity::class.java)
-            println("Mensaje --> $type")
+            val intent = Intent(it.context, DetailsActivity::class.java)
+
             intent.putExtra("ActivityType", type)
             intent.putExtra("Participants", participants)
             it.context.startActivity(intent)

@@ -1,17 +1,24 @@
 package com.example.notboredintegrador
 
 import android.content.Intent
-import android.graphics.drawable.ClipDrawable.HORIZONTAL
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notboredintegrador.databinding.ActivityActivitiesBinding
 import com.example.notboredintegrador.recycler.ActivitiesAdapter
 
 class Activities : AppCompatActivity() {
-    val activityType = listOf<String>(
-        "Education", "Recreational", "Social", "Diy", "Charity", "Cooking", "Relaxation", "Music", "Busywork")
+    private val activityType = listOf(
+        "Education",
+        "Recreational",
+        "Social",
+        "Diy",
+        "Charity",
+        "Cooking",
+        "Relaxation",
+        "Music",
+        "Busywork"
+    )
     private lateinit var binding: ActivityActivitiesBinding
     private lateinit var activitiesAdapter: ActivitiesAdapter
 
@@ -23,16 +30,19 @@ class Activities : AppCompatActivity() {
 
         val participants = intent?.getStringExtra("Participants").toString()
 
-
-        activitiesAdapter = ActivitiesAdapter(activityType, participants)
-        binding.rvTypeList.layoutManager = LinearLayoutManager(this)
-        binding.rvTypeList.adapter = activitiesAdapter
+        setupRecyclerView(participants)
 
         binding.ivShuffleButton.setOnClickListener {
-            val intent = Intent(it.context,DetailsActivity::class.java)
+            val intent = Intent(it.context, DetailsActivity::class.java)
             intent.putExtra("Participants", participants)
             it.context.startActivity(intent)
         }
+    }
+
+    private fun setupRecyclerView(participants: String) {
+        activitiesAdapter = ActivitiesAdapter(activityType, participants)
+        binding.rvTypeList.layoutManager = LinearLayoutManager(this)
+        binding.rvTypeList.adapter = activitiesAdapter
     }
 
 }

@@ -3,7 +3,6 @@ package com.example.notboredintegrador
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import com.example.notboredintegrador.databinding.ActivityDetailsBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -48,31 +47,24 @@ class DetailsActivity : AppCompatActivity() {
                 runOnUiThread {
                     with(binding) {
                         activityType?.let {
-                            TvActicityType.text = activityInfo?.category ?: ""
-                            binding.containerActivity.visibility = View.GONE
-                        }?: run {
-                            TvActicityType.text = "Random"
-                            binding.containerActivity.visibility = View.VISIBLE
-                            binding.TvActicity2.text= activityInfo?.category?:""
+                            TvActivityType.text = activityInfo?.category
+                            containerActivity.visibility = View.GONE
+                        } ?: run {
+                            TvActivityType.text = getString(R.string.random)
+                            containerActivity.visibility = View.VISIBLE
+                            TvActicity2.text = activityInfo?.category
                         }
-                        TvActicity.text = activityInfo?.description?: ""
+                        TvActicity.text = activityInfo?.description
                         TvParticipants.text = activityInfo?.participants.toString()
                         TvPrice.text = getPrice(activityInfo?.price)
 
-                        binding.btnTryAnother.text = "Try another"
-
-                        //containerDetails.visibility = View.VISIBLE
-                        //tvErrorMessage.visibility = View.GONE
+                        btnTryAnother.text = getString(R.string.try_another)
                     }
                 }
 
             } else {
                 runOnUiThread {
-                    //binding.containerDetails.visibility = View.GONE
-
-                    //binding.tvErrorMessage.visibility = View.VISIBLE
-
-                    binding.btnTryAnother.text = "Try again"
+                    binding.btnTryAnother.text = getString(R.string.try_again)
                 }
             }
 
