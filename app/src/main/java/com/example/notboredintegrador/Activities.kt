@@ -1,10 +1,8 @@
 package com.example.notboredintegrador
 
 import android.content.Intent
-import android.graphics.drawable.ClipDrawable.HORIZONTAL
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notboredintegrador.databinding.ActivityActivitiesBinding
 import com.example.notboredintegrador.recycler.ActivitiesAdapter
