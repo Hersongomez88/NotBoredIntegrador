@@ -26,26 +26,13 @@ class MainActivity : AppCompatActivity() {
 
         participants.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-
-                if (participants.text.isNotEmpty()){
-                    binding.btnStart.isEnabled = true
-                }else{
-                    binding.btnStart.isEnabled = false
-                    participants.error = "Enter a number of participants"
-                }
-
-                    //binding.btnStart.isEnabled = participants.text.length>0
+                toggleButtonStart()
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (participants.text.isNotEmpty()){
-                    binding.btnStart.isEnabled = true
-                }else{
-                    binding.btnStart.isEnabled = false
-                    participants.error = "Enter a number of participants"
-                }
+                toggleButtonStart()
             }
         })
         binding.tvTermsAndCond.setOnClickListener {
@@ -53,18 +40,32 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnStart.setOnClickListener {
-            if (participants.text.isNotEmpty() && participants.text.isDigitsOnly() && participants.text.toString().toInt() > 0) {
+            if (isUserInputValid()) {
                 navigate(Activities())
-            }else {
-                participants.error = "Only digits allowed"
+            } else {
+                participants.error = getString(R.string.wrong_participants_input_message)
             }
+        }
+    }
+
+    private fun isUserInputValid(): Boolean {
+        val textInput = participants.text
+        return textInput.isNotEmpty() && textInput.isDigitsOnly() && textInput.toString()
+            .toInt() > 0
+    }
+
+    private fun toggleButtonStart() {
+        if (isUserInputValid()) {
+            binding.btnStart.isEnabled = true
+        } else {
+            binding.btnStart.isEnabled = false
+            participants.error = getString(R.string.no_participants_error_message)
         }
     }
 
     private fun navigate(activity: Activity) {
         val intent = Intent(this, activity::class.java)
-        println("Mensaje --> ${participants.text} ")
-        intent.putExtra("Participants",participants.text.toString())
+        intent.putExtra("Participants", participants.text.toString())
         startActivity(intent)
     }
 }

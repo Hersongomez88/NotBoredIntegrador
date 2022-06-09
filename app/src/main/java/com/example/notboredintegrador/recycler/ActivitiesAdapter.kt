@@ -5,7 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notboredintegrador.R
 
-class ActivitiesAdapter(val activityType: List<String>, val participants : String ): RecyclerView.Adapter<ActivitiesViewHolder>() {
+class ActivitiesAdapter(val activityType: List<String>, val participants: String) :
+    RecyclerView.Adapter<ActivitiesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActivitiesViewHolder {
         val view =
             LayoutInflater.from(parent.context)
