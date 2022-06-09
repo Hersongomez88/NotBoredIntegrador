@@ -99,40 +99,48 @@
              app:layout_constraintVertical_bias="0.139"
              tools:text="Informacion" />
 
-     </androidx.constraintlayout.widget.ConstraintLayout>
-
-     <TextView
-         android:id="@+id/tvErrorMessage"
+             <TextViewandroid:id="@+id/tvErrorMessage"
          android:visibility="gone"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:text="Error fetching the activity, please try again"
+         android:text="@string/error_message"
          app:layout_constraintBottom_toBottomOf="parent"
          app:layout_constraintEnd_toEndOf="parent"
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintTop_toTopOf="parent">
 
-     </TextView>-->
+     </TextView>
+
+     </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
 
     <TextView
         android:id="@+id/TvActicity"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="serif"
         android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textColor="@color/purple"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/containerTitle"
         tools:text="Informacion" />
 
     <LinearLayout
         android:id="@+id/containerParticipants"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="64dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -140,30 +148,43 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_person" />
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_person"
+            app:tint="@color/purple_text" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="10dp"
+            android:gravity="center"
             android:text="@string/participants"
-            android:textColor="@color/black" />
+            android:textColor="@color/purple_text"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/TvParticipants"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:textColor="@color/black" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/purple_text"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            tools:ignore="RtlCompat"
+            tools:text="1" />
+
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/containerPrice"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="64dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -172,29 +193,39 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_money" />
+            android:src="@drawable/ic_money"
+            app:tint="@color/purple_text" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="10dp"
             android:text="@string/price"
-            android:textColor="@color/black" />
+            android:textColor="@color/purple_text"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/TvPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:textColor="@color/black" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/purple_text"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            tools:ignore="RtlCompat"
+            tools:text="Medium" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/containerActivity"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="64dp"
         android:orientation="horizontal"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
@@ -204,15 +235,18 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_format_list" />
+            android:src="@drawable/ic_format_list"
+            app:tint="@color/purple_text" />
 
         <TextView
             android:id="@+id/TvActicity2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:text="@string/participants"
-            android:textColor="@color/black" />
+            android:layout_marginStart="10dp"
+            tools:text="Activity"
+            android:textColor="@color/purple_text"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -221,6 +255,7 @@
         android:id="@+id/btnTryAnother"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
         android:text="Try another"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -9,5 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="titleColor">#0092f0</color>
     <color name="purple">#732baf</color>
+    <color name="purple_text">#450251</color>
 </resources>
 

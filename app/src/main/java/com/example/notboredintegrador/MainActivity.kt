@@ -1,10 +1,13 @@
 package com.example.notboredintegrador
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.isDigitsOnly
@@ -47,10 +50,31 @@ class MainActivity : AppCompatActivity() {
          * else show an error on the edit text */
         binding.btnStart.setOnClickListener {
             if (isUserInputValid()) {
-                navigate(Activities())
+                if (binding.checkboxTerms.isChecked)
+                    navigate(Activities())
+                else
+                    alertTermsAndConditions()
             } else {
                 participants.error = getString(R.string.wrong_participants_input_message)
             }
+        }
+    }
+
+    /**
+     * Shows alert dialog if terms and conditions wasn't checked
+     * */
+    private fun alertTermsAndConditions() {
+        val view = View.inflate(this@MainActivity, R.layout.dialog_view, null)
+        val builder = AlertDialog.Builder(this@MainActivity)
+        builder.setView(view)
+
+        val dialog = builder.create()
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.setCancelable(false)
+
+        dialog.findViewById<Button>(R.id.btnOk).setOnClickListener {
+            dialog.dismiss()
         }
     }
 
