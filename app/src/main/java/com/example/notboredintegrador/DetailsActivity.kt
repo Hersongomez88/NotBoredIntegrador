@@ -10,6 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
 
 class DetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailsBinding
@@ -48,18 +49,29 @@ class DetailsActivity : AppCompatActivity() {
                 runOnUiThread {
                     with(binding) {
                         activityType?.let {
-                            TvActicityType.text = activityInfo?.category ?: ""
+                            TvActicityType.text = activityInfo?.category?.replaceFirstChar {
+                                if (it.isLowerCase()) it.titlecase(
+                                    Locale.getDefault()
+                                ) else it.toString()
+                            } ?: ""
                             binding.containerActivity.visibility = View.GONE
-                        }?: run {
+                        }?:
+                        run {
                             TvActicityType.text = "Random"
                             binding.containerActivity.visibility = View.VISIBLE
-                            binding.TvActicity2.text= activityInfo?.category?:""
+                            binding.TvActicity2.text=
+                                activityInfo?.category?.replaceFirstChar {
+                                    if (it.isLowerCase()) it.titlecase(
+                                        Locale.getDefault()
+                                    ) else it.toString()
+                                } ?: ""
                         }
+
                         TvActicity.text = activityInfo?.description?: ""
                         TvParticipants.text = activityInfo?.participants.toString()
                         TvPrice.text = getPrice(activityInfo?.price)
 
-                        binding.btnTryAnother.text = "Try another"
+                        btnTryAnother.text = "Try another"
 
                         //containerDetails.visibility = View.VISIBLE
                         //tvErrorMessage.visibility = View.GONE
@@ -68,7 +80,7 @@ class DetailsActivity : AppCompatActivity() {
 
             } else {
                 runOnUiThread {
-                    //binding.containerDetails.visibility = View.GONE
+                   // binding.containerDetails.visibility = View.GONE
 
                     //binding.tvErrorMessage.visibility = View.VISIBLE
 
