@@ -3,7 +3,6 @@ package com.example.notboredintegrador
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import com.example.notboredintegrador.databinding.ActivityDetailsBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -51,7 +50,7 @@ class DetailsActivity : AppCompatActivity() {
                             TvActivityType.text = activityInfo?.category
                             containerActivity.visibility = View.GONE
                         } ?: run {
-                            TvActivityType.text = "Random"
+                            TvActivityType.text = getString(R.string.random)
                             containerActivity.visibility = View.VISIBLE
                             TvActicity2.text = activityInfo?.category
                         }
@@ -59,13 +58,13 @@ class DetailsActivity : AppCompatActivity() {
                         TvParticipants.text = activityInfo?.participants.toString()
                         TvPrice.text = getPrice(activityInfo?.price)
 
-                        btnTryAnother.text = "Try another"
+                        btnTryAnother.text = getString(R.string.try_another)
                     }
                 }
 
             } else {
                 runOnUiThread {
-                    binding.btnTryAnother.text = "Try again"
+                    binding.btnTryAnother.text = getString(R.string.try_again)
                 }
             }
 

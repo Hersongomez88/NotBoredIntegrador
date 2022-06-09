@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             if (isUserInputValid()) {
                 navigate(Activities())
             } else {
-                participants.error = "Only digits allowed"
+                participants.error = getString(R.string.wrong_participants_input_message)
             }
         }
     }
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
             binding.btnStart.isEnabled = true
         } else {
             binding.btnStart.isEnabled = false
-            participants.error = "Enter a number of participants"
+            participants.error = getString(R.string.no_participants_error_message)
         }
     }
 
