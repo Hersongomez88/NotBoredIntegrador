@@ -3,7 +3,6 @@ package com.example.notboredintegrador
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import com.example.notboredintegrador.databinding.ActivityDetailsBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -49,7 +48,7 @@ class DetailsActivity : AppCompatActivity() {
                 runOnUiThread {
                     with(binding) {
                         activityType?.let {
-                            TvActicityType.text = activityInfo?.category?.replaceFirstChar {
+                            TvActivityType.text = activityInfo?.category?.replaceFirstChar {
                                 if (it.isLowerCase()) it.titlecase(
                                     Locale.getDefault()
                                 ) else it.toString()
@@ -57,7 +56,7 @@ class DetailsActivity : AppCompatActivity() {
                             binding.containerActivity.visibility = View.GONE
                         }?:
                         run {
-                            TvActicityType.text = "Random"
+                            TvActivityType.text = "Random"
                             binding.containerActivity.visibility = View.VISIBLE
                             binding.TvActicity2.text=
                                 activityInfo?.category?.replaceFirstChar {
@@ -85,6 +84,8 @@ class DetailsActivity : AppCompatActivity() {
                     //binding.tvErrorMessage.visibility = View.VISIBLE
 
                     binding.btnTryAnother.text = "Try again"
+                    //binding.btnTryAnother.text = getString(R.string.try_again)
+
                 }
             }
 

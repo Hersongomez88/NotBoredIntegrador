@@ -12,4 +12,12 @@
     <string name="participants">Participants</string>
     <string name="price">Price</string>
     <string name="error_message">Error fetching the activity, please try again</string>
+    <string name="proceed">Proceed</string>
+    <string name="msg_alert_terms">You must accept\nTerms and Conditions</string>
+    <string name="attention">Attention!!</string>
+    <string name="try_another">Try another</string>
+    <string name="try_again">Try again</string>
+    <string name="random">Random</string>
+    <string name="no_participants_error_message">Enter a number of participants</string>
+    <string name="wrong_participants_input_message">Only digits allowed</string>
 </resources>
