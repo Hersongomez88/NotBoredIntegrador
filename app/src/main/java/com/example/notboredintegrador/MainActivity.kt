@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity() {
 
         participants = binding.EditTextParticipants
 
+        /* When user modifies the participants, check if it's valid and enable/disable
+         * the start button accordingly */
         participants.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 toggleButtonStart()
@@ -35,10 +37,14 @@ class MainActivity : AppCompatActivity() {
                 toggleButtonStart()
             }
         })
+
+        //When the text of terms and conditions is clicked, start the terms and conditions activity
         binding.tvTermsAndCond.setOnClickListener {
             navigate(TermsAndConditions())
         }
 
+        /* If the user input is valid then start the Activity type selection activity
+         * else show an error on the edit text */
         binding.btnStart.setOnClickListener {
             if (isUserInputValid()) {
                 navigate(Activities())
@@ -48,12 +54,20 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Checks if the user input on the participants edit text is valid.
+     * That is: Not empty, digits only and forms a number grater than zero
+     * */
     private fun isUserInputValid(): Boolean {
         val textInput = participants.text
         return textInput.isNotEmpty() && textInput.isDigitsOnly() && textInput.toString()
             .toInt() > 0
     }
 
+    /**
+     * Toggles the start button according to the user input of participants.
+     * Also shows an error message on the edit text if the input is not valid
+     * */
     private fun toggleButtonStart() {
         if (isUserInputValid()) {
             binding.btnStart.isEnabled = true
@@ -63,6 +77,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Receives an activity to navigate to.
+     * Adds the participants input as extended data to the intent and starts the activity.
+     * */
     private fun navigate(activity: Activity) {
         val intent = Intent(this, activity::class.java)
         intent.putExtra("Participants", participants.text.toString())

@@ -11,6 +11,7 @@ class TermsAndConditions : AppCompatActivity() {
         setContentView(R.layout.activity_terms_and_conditions)
 
         val ivClose = findViewById<ImageView>(R.id.iv_close)
+        // The close button navigates the user back to the main screen
         ivClose.setOnClickListener { onBackPressed() }
 
     }
