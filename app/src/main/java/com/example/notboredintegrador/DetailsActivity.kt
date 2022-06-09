@@ -18,9 +18,11 @@ class DetailsActivity : AppCompatActivity() {
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Obtain the activity type and the number of participants
         val activityType = intent.getStringExtra("ActivityType")?.lowercase()
         val participants = intent.getStringExtra("Participants")?.toInt()
 
+        // Fetch from API and render UI
         loadActivity(activityType, participants)
 
         binding.btnTryAnother.setOnClickListener {
@@ -33,6 +35,11 @@ class DetailsActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Fetches an activity from the API using the activity type and number of participants
+     * received. If the response is successful render the info to the UI.
+     * When the activity type is null it shows a random type of activity.
+     * */
     private fun loadActivity(activityType: String?, participants: Int?) {
 
         CoroutineScope(Dispatchers.IO).launch {
@@ -56,7 +63,7 @@ class DetailsActivity : AppCompatActivity() {
                             binding.containerActivity.visibility = View.GONE
                         }?:
                         run {
-                            TvActivityType.text = "Random"
+                            TvActivityType.text = getString(R.string.random)
                             binding.containerActivity.visibility = View.VISIBLE
                             binding.TvActicity2.text=
                                 activityInfo?.category?.replaceFirstChar {
@@ -70,7 +77,7 @@ class DetailsActivity : AppCompatActivity() {
                         TvParticipants.text = activityInfo?.participants.toString()
                         TvPrice.text = getPrice(activityInfo?.price)
 
-                        btnTryAnother.text = "Try another"
+                        btnTryAnother.text = getString(R.string.try_another)
 
                         //containerDetails.visibility = View.VISIBLE
                         //tvErrorMessage.visibility = View.GONE
@@ -83,7 +90,7 @@ class DetailsActivity : AppCompatActivity() {
 
                     //binding.tvErrorMessage.visibility = View.VISIBLE
 
-                    binding.btnTryAnother.text = "Try again"
+                    binding.btnTryAnother.text = getString(R.string.try_again)
                     //binding.btnTryAnother.text = getString(R.string.try_again)
 
                 }
@@ -93,6 +100,10 @@ class DetailsActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Maps the price to a string.
+     * Price must be a value between 0 and 1 or can be null.
+     * Always returns a string. */
     private fun getPrice(price: Double?): String {
         return when (price) {
             null -> ""
@@ -104,6 +115,9 @@ class DetailsActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Builds an instance of Retrofit and Gson as the converter factory
+     * */
     private fun getRetroFit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl("http://www.boredapi.com/api/")

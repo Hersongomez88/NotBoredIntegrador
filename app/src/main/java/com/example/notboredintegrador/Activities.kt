@@ -32,6 +32,7 @@ class Activities : AppCompatActivity() {
 
         setupRecyclerView(participants)
 
+        // Navigate to the details activity adding the number of participants as extended data
         binding.ivShuffleButton.setOnClickListener {
             val intent = Intent(it.context, DetailsActivity::class.java)
             intent.putExtra("Participants", participants)
@@ -39,6 +40,9 @@ class Activities : AppCompatActivity() {
         }
     }
 
+    /**
+     * Sets up the adapter and layout manager for the recycler view of activity types
+     * */
     private fun setupRecyclerView(participants: String) {
         activitiesAdapter = ActivitiesAdapter(activityType, participants)
         binding.rvTypeList.layoutManager = LinearLayoutManager(this)
