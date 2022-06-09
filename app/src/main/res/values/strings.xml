@@ -11,7 +11,7 @@
     <string name="activities">Activities</string>
     <string name="participants">Participants</string>
     <string name="price">Price</string>
-    <string name="error_message">Error fetching the activity, please try again</string>
+    <string name="error_message">No activity found, please try again</string>
     <string name="proceed">Proceed</string>
     <string name="msg_alert_terms">You must accept\nTerms and Conditions</string>
     <string name="attention">Attention!!</string>
@@ -20,4 +20,5 @@
     <string name="random">Random</string>
     <string name="no_participants_error_message">Enter a number of participants</string>
     <string name="wrong_participants_input_message">Only digits allowed</string>
+    <string name="connection_error_message">A connection error occurred, please try again</string>
 </resources>

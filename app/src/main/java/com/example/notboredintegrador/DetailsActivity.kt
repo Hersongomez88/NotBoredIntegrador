@@ -1,15 +1,14 @@
 package com.example.notboredintegrador
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.example.notboredintegrador.databinding.ActivityDetailsBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.*
 
 class DetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailsBinding
@@ -22,6 +21,7 @@ class DetailsActivity : AppCompatActivity() {
         val activityType = intent.getStringExtra("ActivityType")?.lowercase()
         val participants = intent.getStringExtra("Participants")?.toInt()
 
+        showAppBarTitle(activityType)
         // Fetch from API and render UI
         loadActivity(activityType, participants)
 
@@ -54,50 +54,56 @@ class DetailsActivity : AppCompatActivity() {
 
                 runOnUiThread {
                     with(binding) {
-                        activityType?.let {
-                            TvActivityType.text = activityInfo?.category?.replaceFirstChar {
-                                if (it.isLowerCase()) it.titlecase(
-                                    Locale.getDefault()
-                                ) else it.toString()
-                            } ?: ""
-                            binding.containerActivity.visibility = View.GONE
-                        }?:
-                        run {
-                            TvActivityType.text = getString(R.string.random)
-                            binding.containerActivity.visibility = View.VISIBLE
-                            binding.TvActicity2.text=
-                                activityInfo?.category?.replaceFirstChar {
-                                    if (it.isLowerCase()) it.titlecase(
-                                        Locale.getDefault()
-                                    ) else it.toString()
-                                } ?: ""
+                        // If we receive some info from the API
+                        activityInfo?.category?.let {
+                            // Show info from API
+                            TvActicity.text = activityInfo.description
+                            TvParticipants.text = activityInfo.participants.toString()
+                            TvPrice.text = getPrice(activityInfo.price)
+
+                            btnTryAnother.text = getString(R.string.try_another)
+
+                            // Show the whole container and not the error
+                            containerData.visibility = View.VISIBLE
+                            tvErrorMessage.visibility = View.GONE
+
+                        } ?: run { // else if no info was received
+                            // Show the whole container and not the error
+                            containerData.visibility = View.GONE
+                            binding.tvErrorMessage.text = getString(R.string.error_message)
+                            tvErrorMessage.visibility = View.VISIBLE
                         }
 
-                        TvActicity.text = activityInfo?.description?: ""
-                        TvParticipants.text = activityInfo?.participants.toString()
-                        TvPrice.text = getPrice(activityInfo?.price)
-
-                        btnTryAnother.text = getString(R.string.try_another)
-
-                        //containerDetails.visibility = View.VISIBLE
-                        //tvErrorMessage.visibility = View.GONE
                     }
                 }
 
             } else {
                 runOnUiThread {
-                   // binding.containerDetails.visibility = View.GONE
+                    binding.containerData.visibility = View.GONE
 
-                    //binding.tvErrorMessage.visibility = View.VISIBLE
+                    binding.tvErrorMessage.text = getString(R.string.connection_error_message)
+                    binding.tvErrorMessage.visibility = View.VISIBLE
 
                     binding.btnTryAnother.text = getString(R.string.try_again)
-                    //binding.btnTryAnother.text = getString(R.string.try_again)
-
                 }
             }
 
         }
 
+    }
+
+    private fun showAppBarTitle(activityType: String?){
+        with(binding){
+            // If user selected an activity type show top bar title
+            activityType?.let {
+                TvActivityType.text = capitalize(activityType)
+                containerActivity.visibility = View.GONE
+            } ?: run { // else, if user selected random activity
+                TvActivityType.text = getString(R.string.random)
+                containerActivity.visibility = View.VISIBLE
+                TvActicity2.text = capitalize(activityType)
+            }
+        }
     }
 
     /**
