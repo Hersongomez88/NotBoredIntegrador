@@ -21,28 +21,28 @@
             android:id="@+id/tvAppName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:gravity="center_horizontal"
             app:layout_constraintVertical_bias="0.911">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Not"
                 android:textColor="#707070"
-                android:textSize="50sp"
-                android:text="Not"/>
+                android:textSize="50sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Bored"
                 android:textColor="@color/purple"
                 android:textSize="50sp"
-                android:text="Bored"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
 
         </LinearLayout>
@@ -79,10 +79,10 @@
         android:layout_marginTop="132dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/start_btn_bg"
+        android:enabled="false"
         android:text="@string/txt_start"
         android:textAllCaps="false"
         android:textSize="18sp"
-        android:enabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,10 +92,10 @@
         android:id="@+id/tvTermsAndCond"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="@string/terms_and_conditions"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:layout_marginTop="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"

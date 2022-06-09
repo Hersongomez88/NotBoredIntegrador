@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnStart.setOnClickListener {
             if (isUserInputValid()) {
                 navigate(Activities())
-            }else {
+            } else {
                 participants.error = "Only digits allowed"
             }
         }
@@ -50,13 +50,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun isUserInputValid(): Boolean {
         val textInput = participants.text
-        return textInput.isNotEmpty() && textInput.isDigitsOnly() && textInput.toString().toInt() > 0
+        return textInput.isNotEmpty() && textInput.isDigitsOnly() && textInput.toString()
+            .toInt() > 0
     }
 
     private fun toggleButtonStart() {
-        if (isUserInputValid()){
+        if (isUserInputValid()) {
             binding.btnStart.isEnabled = true
-        }else{
+        } else {
             binding.btnStart.isEnabled = false
             participants.error = "Enter a number of participants"
         }
@@ -64,7 +65,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun navigate(activity: Activity) {
         val intent = Intent(this, activity::class.java)
-        intent.putExtra("Participants",participants.text.toString())
+        intent.putExtra("Participants", participants.text.toString())
         startActivity(intent)
     }
 }

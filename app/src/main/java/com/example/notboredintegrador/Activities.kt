@@ -10,8 +10,17 @@ import com.example.notboredintegrador.databinding.ActivityActivitiesBinding
 import com.example.notboredintegrador.recycler.ActivitiesAdapter
 
 class Activities : AppCompatActivity() {
-    val activityType = listOf<String>(
-        "Education", "Recreational", "Social", "Diy", "Charity", "Cooking", "Relaxation", "Music", "Busywork")
+    private val activityType = listOf(
+        "Education",
+        "Recreational",
+        "Social",
+        "Diy",
+        "Charity",
+        "Cooking",
+        "Relaxation",
+        "Music",
+        "Busywork"
+    )
     private lateinit var binding: ActivityActivitiesBinding
     private lateinit var activitiesAdapter: ActivitiesAdapter
 
@@ -23,16 +32,19 @@ class Activities : AppCompatActivity() {
 
         val participants = intent?.getStringExtra("Participants").toString()
 
-
-        activitiesAdapter = ActivitiesAdapter(activityType, participants)
-        binding.rvTypeList.layoutManager = LinearLayoutManager(this)
-        binding.rvTypeList.adapter = activitiesAdapter
+        setupRecyclerView(participants)
 
         binding.ivShuffleButton.setOnClickListener {
-            val intent = Intent(it.context,DetailsActivity::class.java)
+            val intent = Intent(it.context, DetailsActivity::class.java)
             intent.putExtra("Participants", participants)
             it.context.startActivity(intent)
         }
+    }
+
+    private fun setupRecyclerView(participants: String) {
+        activitiesAdapter = ActivitiesAdapter(activityType, participants)
+        binding.rvTypeList.layoutManager = LinearLayoutManager(this)
+        binding.rvTypeList.adapter = activitiesAdapter
     }
 
 }

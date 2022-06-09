@@ -7,5 +7,8 @@ import retrofit2.http.Url
 
 interface APIService {
     @GET("activity/")
-    suspend fun getActivity(@Query("participants") participants: Int?, @Query("type") type: String?): Response<ActivitiesResponse>
+    suspend fun getActivity(
+        @Query("participants") participants: Int?,
+        @Query("type") type: String?
+    ): Response<ActivitiesResponse>
 }
