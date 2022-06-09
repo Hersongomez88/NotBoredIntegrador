@@ -55,8 +55,10 @@ class DetailsActivity : AppCompatActivity() {
                 runOnUiThread {
                     with(binding) {
                         // If we receive some info from the API
+
                         activityInfo?.category?.let {
                             // Show info from API
+                            TvActicity2.text = activityInfo.category
                             TvActicity.text = activityInfo.description
                             TvParticipants.text = activityInfo.participants.toString()
                             TvPrice.text = getPrice(activityInfo.price)
