@@ -9,6 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
 
 class DetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailsBinding
@@ -47,24 +48,44 @@ class DetailsActivity : AppCompatActivity() {
                 runOnUiThread {
                     with(binding) {
                         activityType?.let {
-                            TvActivityType.text = activityInfo?.category
-                            containerActivity.visibility = View.GONE
-                        } ?: run {
-                            TvActivityType.text = getString(R.string.random)
-                            containerActivity.visibility = View.VISIBLE
-                            TvActicity2.text = activityInfo?.category
+                            TvActivityType.text = activityInfo?.category?.replaceFirstChar {
+                                if (it.isLowerCase()) it.titlecase(
+                                    Locale.getDefault()
+                                ) else it.toString()
+                            } ?: ""
+                            binding.containerActivity.visibility = View.GONE
+                        }?:
+                        run {
+                            TvActivityType.text = "Random"
+                            binding.containerActivity.visibility = View.VISIBLE
+                            binding.TvActicity2.text=
+                                activityInfo?.category?.replaceFirstChar {
+                                    if (it.isLowerCase()) it.titlecase(
+                                        Locale.getDefault()
+                                    ) else it.toString()
+                                } ?: ""
                         }
-                        TvActicity.text = activityInfo?.description
+
+                        TvActicity.text = activityInfo?.description?: ""
                         TvParticipants.text = activityInfo?.participants.toString()
                         TvPrice.text = getPrice(activityInfo?.price)
 
-                        btnTryAnother.text = getString(R.string.try_another)
+                        btnTryAnother.text = "Try another"
+
+                        //containerDetails.visibility = View.VISIBLE
+                        //tvErrorMessage.visibility = View.GONE
                     }
                 }
 
             } else {
                 runOnUiThread {
-                    binding.btnTryAnother.text = getString(R.string.try_again)
+                   // binding.containerDetails.visibility = View.GONE
+
+                    //binding.tvErrorMessage.visibility = View.VISIBLE
+
+                    binding.btnTryAnother.text = "Try again"
+                    //binding.btnTryAnother.text = getString(R.string.try_again)
+
                 }
             }
 
