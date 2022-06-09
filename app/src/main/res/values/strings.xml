@@ -10,4 +10,7 @@
     <string name="activities">Activities</string>
     <string name="participants">Participants</string>
     <string name="price">Price</string>
+    <string name="proceed">Proceed</string>
+    <string name="msg_alert_terms">You must accept\nTerms and Conditions</string>
+    <string name="attention">Attention!!</string>
 </resources>

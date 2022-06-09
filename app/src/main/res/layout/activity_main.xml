@@ -88,19 +88,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtNumberParticipants" />
 
-    <TextView
-        android:id="@+id/tvTermsAndCond"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/terms_and_conditions"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:layout_marginTop="5dp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnStart"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:layout_marginTop="5dp">
+
+        <CheckBox
+            android:id="@+id/checkboxTerms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/purple"/>
+
+
+        <TextView
+            android:id="@+id/tvTermsAndCond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/terms_and_conditions"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+/>
+
+    </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
